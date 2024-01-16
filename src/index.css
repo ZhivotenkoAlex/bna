@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+}
+
+html {
+  background-color: white;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins';
+  background-color: white;
+}

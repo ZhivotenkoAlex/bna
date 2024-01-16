@@ -1,15 +1,14 @@
-import React from 'react'
 import styled from 'styled-components'
-import MenuFillIcon from 'remixicon-react/MenuFillIcon'
 import LogoIcon from '../../icons/Logo'
 import { Colors } from '../../helpers/colors'
 import UserBlock from './UserBlock'
 import { UserData } from '../../mock/userData'
+import Menu from '../Menu/Menu'
 
 export default function Header() {
   return (
     <Root>
-      <MenuFillIcon size={30} color={Colors.PRIMARY_50} />
+      <Menu />
       <LogoIcon />
       <UserBlock userName={UserData.name} />
     </Root>

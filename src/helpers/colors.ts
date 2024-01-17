@@ -31,3 +31,27 @@ export const CurrencyColors = {
   regular: Colors.SECONDARY_40,
   success: Colors.SUCCESS_40,
 }
+
+export const ButtonColors = {
+  active: {
+    color: Colors.SECONDARY_100,
+    background: Colors.PRIMARY_30,
+    border: Colors.PRIMARY_30,
+    hoverColor: Colors.PRIMARY_80,
+    shadow: 'none',
+  },
+  inactive: {
+    color: Colors.PRIMARY_20,
+    background: 'none',
+    border: Colors.PRIMARY_30,
+    hoverColor: Colors.PRIMARY_30,
+    shadow: 'none',
+  },
+  secondary: {
+    color: Colors.PRIMARY_50,
+    background: Colors.NEUTRAL_30,
+    border: Colors.NEUTRAL_30,
+    hoverColor: Colors.PRIMARY_80,
+    shadow: Colors.PRIMARY_30,
+  },
+}

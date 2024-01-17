@@ -1,13 +1,12 @@
-import React from "react"
-import styled, { keyframes } from "styled-components"
-import dayjs from "dayjs"
-import { Colors } from "../../../helpers/colors"
-import IconCircleContainer from "../../atoms/IconCircleContainer"
-import CardIcon from "../../../icons/CardIcon"
-import WalletIcon from "../../../icons/WalletIcon"
-import Currency from "../../atoms/Currency"
-import { toCapitalize } from "../../../helpers/toCapitalize"
-import { Transaction } from "../../../types/userData"
+import styled, { keyframes } from 'styled-components'
+import dayjs from 'dayjs'
+import { Colors } from '../../../helpers/colors'
+import IconCircleContainer from '../../atoms/IconCircleContainer'
+import CardIcon from '../../../icons/CardIcon'
+import WalletIcon from '../../../icons/WalletIcon'
+import Currency from '../../atoms/Currency'
+import { toCapitalize } from '../../../helpers/toCapitalize'
+import { Transaction } from '../../../types/userData'
 
 type PropTypes = {
   transaction: Transaction
@@ -16,16 +15,16 @@ type PropTypes = {
 
 export default function TransactionItem({ transaction, className }: PropTypes) {
   const { partner, date, type, amount } = transaction
-  const isPaymentType = type === "payment"
+  const isPaymentType = type === 'payment'
 
-  const currencyColor = type === "payment" ? "regular" : "success"
+  const currencyColor = type === 'payment' ? 'regular' : 'success'
   const capitalizedType = toCapitalize(type)
 
-  const formattedDate = dayjs(date).format("MMM DD")
+  const formattedDate = dayjs(date).format('MMM DD')
   return (
     <Root className={className}>
       <Container>
-        <IconCircleContainer color={isPaymentType ? "light" : "normal"}>
+        <IconCircleContainer color={isPaymentType ? 'light' : 'normal'}>
           {isPaymentType ? <CardIcon /> : <WalletIcon />}
         </IconCircleContainer>
         <DescriptionContainer>
@@ -39,6 +38,7 @@ export default function TransactionItem({ transaction, className }: PropTypes) {
     </Root>
   )
 }
+
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -47,7 +47,6 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `
-
 const Root = styled.div`
   animation: 1s ${fadeIn} ease-out;
   display: flex;

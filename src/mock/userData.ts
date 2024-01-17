@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { FilterType } from '../types/userData'
 import { ROUTES } from '../helpers/routes'
+
 export const UserData = {
   id: uuidv4(),
   name: 'Steve Rogers',
@@ -64,7 +65,7 @@ export const UserData = {
       transactions: [
         {
           id: uuidv4(),
-          partner: 'Cineplex Inc.',
+          partner: 'Duplex Inc.',
           date: '2024-09-24 12:09:33',
           type: 'payment',
           amount: -52.5,
@@ -80,7 +81,7 @@ export const UserData = {
         },
         {
           id: uuidv4(),
-          partner: 'Cineplex Inc.',
+          partner: 'Duplex Inc.',
           date: '2024-08-24 12:09:33',
           type: 'payment',
           amount: -52.5,
@@ -96,7 +97,7 @@ export const UserData = {
         },
         {
           id: uuidv4(),
-          partner: 'Cineplex Inc.',
+          partner: 'Duplex Inc.',
           date: '2024-07-24 12:09:33',
           type: 'payment',
           amount: -52.5,

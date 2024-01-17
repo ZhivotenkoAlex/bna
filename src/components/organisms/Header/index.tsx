@@ -1,18 +1,19 @@
-import styled from "styled-components"
-import LogoIcon from "../../../icons/Logo"
-import { Colors } from "../../../helpers/colors"
-import UserBlock from "./UserBlock"
-import { UserData } from "../../../mock/userData"
-import NavMenu from "../NavMenu"
-import { Sizes } from "../../../helpers/sizes"
-import { Link } from "react-router-dom"
+import styled from 'styled-components'
+import LogoIcon from '../../../icons/Logo'
+import { Colors } from '../../../helpers/colors'
+import UserBlock from './UserBlock'
+import { UserData } from '../../../mock/userData'
+import NavMenu from '../NavMenu'
+import { Sizes } from '../../../helpers/sizes'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../../helpers/routes'
 
 export default function Header() {
   return (
     <Root>
       <Container>
         <NavMenu />
-        <StyledLink to="/">
+        <StyledLink to={ROUTES.HOME}>
           <LogoIcon />
         </StyledLink>
         <UserBlock userName={UserData.name} />

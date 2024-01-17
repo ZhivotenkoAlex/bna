@@ -1,59 +1,56 @@
-import { useMemo, useState } from "react"
-import Title from "../../atoms/Title"
-import FilterButton from "../../molecules/FilterButton"
-import Button from "../../atoms/Button"
-import TransactionItem from "../../molecules/TransactionItem"
-import { transactionsFilters } from "../../../mock/userData"
-import styled from "styled-components"
-import { Sizes } from "../../../helpers/sizes"
-import { BankCardType, FilterType, Transaction } from "../../../types/userData"
+import { useMemo, useState } from 'react'
+import Title from '../../atoms/Title'
+import FilterButton from '../../molecules/FilterButton'
+import Button from '../../atoms/Button'
+import TransactionItem from '../../molecules/TransactionItem'
+import { transactionsFilters } from '../../../mock/userData'
+import styled from 'styled-components'
+import { Sizes } from '../../../helpers/sizes'
+import { BankCardType, FilterType, Transaction } from '../../../types/userData'
 
 type PropType = {
   activeCard: BankCardType
 }
 
 export default function TransactionsSection({ activeCard }: PropType) {
-  const [activeFilter, setActiveFilter] = useState<FilterType>("All")
-  const [displayedTransactionsCount, setDisplayedTransactionsCount] =
-    useState(3)
+  const [activeFilter, setActiveFilter] = useState<FilterType>('All')
+  const [displayedTransactionsCount, setDisplayedTransactionsCount] = useState(3)
 
   const activeFilterHandle = (name: FilterType) => setActiveFilter(name)
 
   const filteredTransactions = useMemo(
     () =>
       activeCard.transactions.filter((item: Transaction) => {
-        return activeFilter === "All" ? item : item.type === "payment"
+        return activeFilter === 'All' ? item : item.type === 'payment'
       }),
-    [activeCard.transactions, activeFilter]
+    [activeCard.transactions, activeFilter],
   )
 
   const displayedTransactions = useMemo(
     () => filteredTransactions.slice(0, displayedTransactionsCount),
-    [displayedTransactionsCount, filteredTransactions]
+    [displayedTransactionsCount, filteredTransactions],
   )
 
   const handleShowMore = () => {
     const step = 3
     if (displayedTransactionsCount < filteredTransactions.length) {
-      setDisplayedTransactionsCount((prev) => prev + step)
+      setDisplayedTransactionsCount(prev => prev + step)
     } else {
       setDisplayedTransactionsCount(step)
     }
   }
 
   const showMoreButtonTitle =
-    displayedTransactions.length < filteredTransactions.length
-      ? "Show more"
-      : "Show less"
+    displayedTransactions.length < filteredTransactions.length ? 'Show more' : 'Show less'
 
   return (
     <Root>
       <Title>Transactions</Title>
       <FilterContainer>
-        {transactionsFilters.map((filter) => (
+        {transactionsFilters.map(filter => (
           <FilterButton
             key={filter.id}
-            variant={activeFilter === filter.title ? "active" : "inactive"}
+            variant={activeFilter === filter.title ? 'active' : 'inactive'}
             children={filter.title}
             onClick={activeFilterHandle}
           />
@@ -108,7 +105,6 @@ const ButtonContainer = styled.div`
   @media screen and (min-width: ${Sizes.TABLET}px) {
     position: absolute;
     right: 0;
-    /* margin-right: 34px; */
     margin-top: 83px;
   }
 `

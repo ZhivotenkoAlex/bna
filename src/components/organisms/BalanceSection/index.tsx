@@ -1,4 +1,3 @@
-import React from 'react'
 import Title from '../../atoms/Title'
 import AccountBalance from '../../molecules/AccountBalance'
 

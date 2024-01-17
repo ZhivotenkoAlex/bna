@@ -1,4 +1,3 @@
-// import Title from '../../atoms/Title'
 import { Colors } from '../../../helpers/colors'
 import AddLineIcon from 'remixicon-react/AddLineIcon'
 import IconCircleContainer from '../../atoms/IconCircleContainer'
@@ -8,9 +7,11 @@ import { Sizes } from '../../../helpers/sizes'
 import { BankAccount } from '../../../types/userData'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../../helpers/routes'
+
 type PropTypes = {
   accounts: BankAccount[]
 }
+
 export default function AccountAndCardsSection({ accounts }: PropTypes) {
   return (
     <>
@@ -24,7 +25,7 @@ export default function AccountAndCardsSection({ accounts }: PropTypes) {
         <IconCircleContainer color="dark">
           <AddLineIcon color={Colors.PRIMARY_50} />
         </IconCircleContainer>
-        <CardLinkTitle to={ROUTES.LINK_BANK}>Link a card or bank</CardLinkTitle>
+        <CardLink to={ROUTES.LINK_BANK}>Link a card or bank</CardLink>
       </CardLinkContainer>
     </>
   )
@@ -51,7 +52,7 @@ const CardLinkContainer = styled.div`
   }
 `
 
-const CardLinkTitle = styled(Link)`
+const CardLink = styled(Link)`
   color: ${Colors.SECONDARY_20};
   font-family: Poppins;
   font-size: 20px;
@@ -59,8 +60,9 @@ const CardLinkTitle = styled(Link)`
   font-weight: 700;
   line-height: normal;
   text-decoration-line: underline;
+  transition: all 1s ease;
   &:hover {
-    color: ${Colors.PRIMARY_50};
+    color: ${Colors.PRIMARY_30};
   }
 `
 

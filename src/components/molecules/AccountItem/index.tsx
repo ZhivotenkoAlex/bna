@@ -1,16 +1,18 @@
-import styled from "styled-components"
-import { Colors } from "../../../helpers/colors"
-import { Sizes } from "../../../helpers/sizes"
-import { BankAccount } from "../../../types/userData"
+import styled from 'styled-components'
+import { Colors } from '../../../helpers/colors'
+import { Sizes } from '../../../helpers/sizes'
+import { BankAccount } from '../../../types/userData'
 
 type PropTypes = {
   account: BankAccount
 }
 
 export default function AccountItem({ account }: PropTypes) {
+  const { title, number } = account
+  const content = `${title} ( ${number} )`
   return (
     <Root>
-      <Title> Signature RBC visa ( ****3234)</Title>
+      <Title>{content}</Title>
     </Root>
   )
 }

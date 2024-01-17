@@ -6,6 +6,7 @@ import { Sizes } from '../../../helpers/sizes'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
 import IconCircleContainer from '../../atoms/IconCircleContainer'
 import ArrowDownIcon from 'remixicon-react/ArrowDownSLineIcon'
+
 type PropTypes = {
   userName: string
 }

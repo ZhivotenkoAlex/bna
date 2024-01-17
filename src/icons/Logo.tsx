@@ -1,4 +1,3 @@
-import React from 'react'
 import { SVGProps } from 'react'
 
 const LogoIcon = ({ width = '100', height = '35', className }: SVGProps<SVGSVGElement>) => (

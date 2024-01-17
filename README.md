@@ -21,7 +21,7 @@ Runs formatting of the components using Prettier
 
 ### `npm run predeploy`
 
-Creates a build directory with a production build of your app.
+Creates a build directory with a production build of the app.
 Makes app ready for deploy on server
 
 ### `npm run deploy`

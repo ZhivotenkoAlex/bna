@@ -2,7 +2,7 @@
   "name": "bna",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://zhivotenkoalex.github.io/bna/",
+  "homepage": "https://zhivotenkoalex.github.io/bna",
   "resolutions": {
     "styled-components": "^5"
   },

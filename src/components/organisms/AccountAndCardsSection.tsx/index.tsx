@@ -1,19 +1,20 @@
 // import Title from '../../atoms/Title'
-import { Colors } from '../../../helpers/colors'
-import AddLineIcon from 'remixicon-react/AddLineIcon'
-import IconCircleContainer from '../../atoms/IconCircleContainer'
-import styled from 'styled-components'
-import AccountItem from '../../molecules/AccountItem'
-import { Sizes } from '../../../helpers/sizes'
+import { Colors } from "../../../helpers/colors"
+import AddLineIcon from "remixicon-react/AddLineIcon"
+import IconCircleContainer from "../../atoms/IconCircleContainer"
+import styled from "styled-components"
+import AccountItem from "../../molecules/AccountItem"
+import { Sizes } from "../../../helpers/sizes"
+import { BankAccount } from "../../../types/userData"
 type PropTypes = {
-  accounts: []
+  accounts: BankAccount[]
 }
 export default function AccountAndCardsSection({ accounts }: PropTypes) {
   return (
     <>
       <Title>Bank Account and Cards</Title>
       <AccountContainer>
-        {accounts.map((item: any) => (
+        {accounts.map((item: BankAccount) => (
           <AccountItem key={item.id} account={item} />
         ))}
       </AccountContainer>

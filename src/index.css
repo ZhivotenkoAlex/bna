@@ -33,6 +33,11 @@ html {
 }
 
 body {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   background-color: white;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
 }

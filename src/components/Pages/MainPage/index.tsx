@@ -1,18 +1,26 @@
-import styled from 'styled-components'
-import Button from '../../atoms/Button'
-import { useState } from 'react'
-import 'animate.css/animate.min.css'
-import BalanceSection from '../../organisms/BalanceSection'
-import BankCardSection from '../../organisms/BankCardSection/index.'
-import TransactionsSection from '../../organisms/TransactionsSection'
-import AccountAndCardsSection from '../../organisms/AccountAndCardsSection.tsx'
-import { Sizes } from '../../../helpers/sizes'
+import styled from "styled-components"
+import Button from "../../atoms/Button"
+import { useState } from "react"
+import "animate.css/animate.min.css"
+import BalanceSection from "../../organisms/BalanceSection"
+import BankCardSection from "../../organisms/BankCardSection/index."
+import TransactionsSection from "../../organisms/TransactionsSection"
+import AccountAndCardsSection from "../../organisms/AccountAndCardsSection.tsx"
+import { Sizes } from "../../../helpers/sizes"
+import { useMediaQuery } from "../../../hooks/useMediaQuery"
+import GlobIcon from "../../../icons/GlobIcon"
+import { BankCardType, UserType } from "../../../types/userData"
 
-export default function MainPage({ userData }: any) {
+type PropTypes = {
+  userData: UserType
+}
+
+export default function MainPage({ userData }: PropTypes) {
   const { cards, balance, bankAccounts } = userData
 
   const [activeCard, setActiveCard] = useState(cards[0])
-  const activeCardHandle = (item: any) => setActiveCard(item)
+  const activeCardHandle = (item: BankCardType) => setActiveCard(item)
+  const isWideScreen = useMediaQuery("min", Sizes.LAPTOP)
 
   return (
     <Root>
@@ -29,6 +37,7 @@ export default function MainPage({ userData }: any) {
           </Button>
         </AddMoneyContainer>
       </RightContainer>
+      {isWideScreen && <StyledGlobIcon />}
     </Root>
   )
 }
@@ -63,4 +72,18 @@ const RightContainer = styled.div`
   display: grid;
   align-content: start;
   position: relative;
+`
+
+const StyledGlobIcon = styled(GlobIcon)`
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  @media screen and (max-width: ${Sizes.TABLET}px) {
+    width: 300px;
+    height: 300px;
+  }
+  @media screen and (max-width: ${Sizes.LAPTOP}px) {
+    width: 536px;
+    height: 536px;
+  }
 `

@@ -1,22 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import cardBG from '../../../Images/cardBG.png'
-import Chip from '../../atoms/Chip'
-import Currency from '../../atoms/Currency'
-import { Colors } from '../../../helpers/colors'
-import { getCardNumber } from '../../../helpers/cardNumber'
-import { toCapitalize } from '../../../helpers/toCapitalize'
-
-type CardType = {
-  status: 'active' | 'inactive'
-  balance: number
-  currency: 'USD'
-  number: string
-}
+import React from "react"
+import styled from "styled-components"
+import cardBG from "../../../Images/cardBG.png"
+import Chip, { ChipType } from "../../atoms/Chip"
+import Currency from "../../atoms/Currency"
+import { Colors } from "../../../helpers/colors"
+import { getCardNumber } from "../../../helpers/cardNumber"
+import { toCapitalize } from "../../../helpers/toCapitalize"
+import { BankCardType } from "../../../types/userData"
 
 type PropTypes = {
-  card: CardType
-  handleCardClick: (card: CardType) => void
+  card: BankCardType
+  handleCardClick: (card: BankCardType) => void
 }
 
 export default function BankCard({ card, handleCardClick }: PropTypes) {
@@ -25,9 +19,14 @@ export default function BankCard({ card, handleCardClick }: PropTypes) {
   return (
     <Root onClick={onCardClick}>
       <Container>
-        <Chip variant={status}>{toCapitalize(status)}</Chip>
+        <Chip variant={status as ChipType}>{toCapitalize(status)}</Chip>
         <BalanceContainer>
-          <Currency currency={currency} amount={balance} color="white" type="card"></Currency>
+          <Currency
+            currency={currency}
+            amount={balance}
+            color="white"
+            type="card"
+          ></Currency>
           <Content>Available Balance</Content>
         </BalanceContainer>
         <Content>{getCardNumber(number, true)}</Content>
@@ -44,8 +43,7 @@ const Root = styled.div`
   transition: all 0.5s ease-in-out;
   &:hover {
     scale: 0.98;
-    box-shadow:
-      0 0 5px 0 ${Colors.PRIMARY_30},
+    box-shadow: 0 0 5px 0 ${Colors.PRIMARY_30},
       inset 0 0 5px 0 ${Colors.PRIMARY_30};
   }
 `

@@ -1,46 +1,39 @@
-import styled from 'styled-components'
-import { Colors } from '../../../helpers/colors'
+import styled from "styled-components"
+import { Colors } from "../../../helpers/colors"
+import { NavLink, useMatch } from "react-router-dom"
+import { NavMenuItem } from "../../../types/userData"
 
 interface PropTypes {
-  item: {
-    label: string
-    path: string
-  }
+  item: NavMenuItem
 }
 function MenuItem({ item }: PropTypes) {
-  // const pathname = usePathname()
-  const pathname = 'Home'
-  // const pageName = pathname.split('/').find(item => item !== '')
-  const isItemActive = pathname?.toLowerCase() === item.label?.toLowerCase()
+  const match = useMatch(item.path)
+  const isItemActive = !!match
   return (
-    <Wrapper>
-      <Item href={item.path} $isActive={isItemActive}>
-        <Label>{item.label}</Label>
-      </Item>
-    </Wrapper>
+    <Item to={item.path} $isActive={isItemActive}>
+      {item.label}
+    </Item>
   )
 }
 
 export default MenuItem
 
-const Item = styled.a<{ $isActive: boolean }>`
+const Item = styled(NavLink)<{ $isActive: boolean }>`
   display: flex;
-  padding: ${props => (props.$isActive === true ? '8px 28px' : '8px 0')};
+  padding: 8px 28px;
   border-radius: 30px;
   align-items: center;
   justify-content: center;
-  background: ${props => (props.$isActive === true ? Colors.SECONDARY_20 : 'transparent')};
+  background: ${(props) =>
+    props.$isActive === true ? Colors.SECONDARY_20 : "transparent"};
   color: ${Colors.PRIMARY_50};
-  cursor: ${props => (props.$isActive === true ? 'default' : 'pointer')};
-  &:hover {
-    color: ${props => (props.$isActive === true ? Colors.PRIMARY_50 : Colors.PRIMARY_90)};
-  }
-`
-
-const Label = styled.p`
+  cursor: ${(props) => (props.$isActive === true ? "default" : "pointer")};
   font-size: 18px;
   font-weight: 700;
   line-height: 150%;
+  text-wrap: nowrap;
+  &:hover {
+    color: ${(props) =>
+      props.$isActive === true ? Colors.PRIMARY_50 : Colors.PRIMARY_90};
+  }
 `
-
-const Wrapper = styled.div``

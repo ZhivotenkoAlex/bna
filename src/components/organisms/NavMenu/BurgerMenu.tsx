@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import 'animate.css/animate.min.css'
-import styled from 'styled-components'
-import CloseFillIcon from 'remixicon-react/CloseFillIcon'
-import MenuFillIcon from 'remixicon-react/MenuFillIcon'
-import { Colors } from '../../../helpers/colors'
-import LogoIcon from '../../../icons/Logo'
+import { ReactNode, useState } from "react"
+import "animate.css/animate.min.css"
+import styled from "styled-components"
+import CloseFillIcon from "remixicon-react/CloseFillIcon"
+import MenuFillIcon from "remixicon-react/MenuFillIcon"
+import { Colors } from "../../../helpers/colors"
+import LogoIcon from "../../../icons/Logo"
 
-export const SideBar = ({ children }: any) => {
+type PropTypes = {
+  children: ReactNode
+}
+
+export const SideBar = ({ children }: PropTypes) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleOnClose = () => {
@@ -15,15 +19,25 @@ export const SideBar = ({ children }: any) => {
 
   return (
     <Root>
-      <MenuFillIcon size="30px" color={Colors.PRIMARY_50} onClick={handleOnClose} />
+      <MenuFillIcon
+        size="30px"
+        color={Colors.PRIMARY_50}
+        onClick={handleOnClose}
+      />
       <SideMenuWrapper $isOpen={isOpen} onClick={handleOnClose}>
         <SideMenu
           $isOpen={isOpen}
-          onClick={e => e.stopPropagation()}
-          className={`animate__animated ${isOpen ? 'animate__fadeIn' : 'animate__fadeOut'} `}
+          onClick={(e) => e.stopPropagation()}
+          className={`animate__animated ${
+            isOpen ? "animate__fadeIn" : "animate__fadeOut"
+          } `}
         >
           <CloseIconCover>
-            <CloseIcon size="35px" color={Colors.PRIMARY_50} onClick={handleOnClose} />
+            <CloseIcon
+              size="35px"
+              color={Colors.PRIMARY_50}
+              onClick={handleOnClose}
+            />
           </CloseIconCover>
           <ItemContainer onClick={handleOnClose}>
             <>
@@ -48,7 +62,7 @@ const Root = styled.div`
 `
 
 const SideMenuWrapper = styled.div<{ $isOpen: boolean }>`
-  display: ${props => (props.$isOpen ? 'block' : 'none')};
+  display: ${(props) => (props.$isOpen ? "block" : "none")};
   width: 100%;
   position: absolute;
   top: 0;
@@ -59,7 +73,7 @@ const SideMenuWrapper = styled.div<{ $isOpen: boolean }>`
 `
 
 const SideMenu = styled.div<{ $isOpen: boolean }>`
-  display: ${props => (props.$isOpen === true ? 'flex' : 'none')};
+  display: ${(props) => (props.$isOpen === true ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
   position: fixed;

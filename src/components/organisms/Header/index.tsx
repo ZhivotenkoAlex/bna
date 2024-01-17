@@ -1,17 +1,20 @@
-import styled from 'styled-components'
-import LogoIcon from '../../../icons/Logo'
-import { Colors } from '../../../helpers/colors'
-import UserBlock from './UserBlock'
-import { UserData } from '../../../mock/userData'
-import Menu from '../NavMenu/Menu'
-import { Sizes } from '../../../helpers/sizes'
+import styled from "styled-components"
+import LogoIcon from "../../../icons/Logo"
+import { Colors } from "../../../helpers/colors"
+import UserBlock from "./UserBlock"
+import { UserData } from "../../../mock/userData"
+import NavMenu from "../NavMenu"
+import { Sizes } from "../../../helpers/sizes"
+import { Link } from "react-router-dom"
 
 export default function Header() {
   return (
     <Root>
       <Container>
-        <Menu />
-        <StyledLogo />
+        <NavMenu />
+        <StyledLink to="/">
+          <LogoIcon />
+        </StyledLink>
         <UserBlock userName={UserData.name} />
       </Container>
     </Root>
@@ -32,7 +35,7 @@ const Container = styled.div`
   }
 `
 
-const StyledLogo = styled(LogoIcon)`
+const StyledLink = styled(Link)`
   @media screen and (min-width: ${Sizes.TABLET}px) {
     order: -1;
   }

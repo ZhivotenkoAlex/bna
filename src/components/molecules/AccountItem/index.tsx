@@ -1,8 +1,13 @@
-import styled from 'styled-components'
-import { Colors } from '../../../helpers/colors'
-import { Sizes } from '../../../helpers/sizes'
+import styled from "styled-components"
+import { Colors } from "../../../helpers/colors"
+import { Sizes } from "../../../helpers/sizes"
+import { BankAccount } from "../../../types/userData"
 
-export default function AccountItem({ account }: any) {
+type PropTypes = {
+  account: BankAccount
+}
+
+export default function AccountItem({ account }: PropTypes) {
   return (
     <Root>
       <Title> Signature RBC visa ( ****3234)</Title>

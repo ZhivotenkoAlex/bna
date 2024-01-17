@@ -1,21 +1,29 @@
-import React from 'react'
-import Title from '../../atoms/Title'
-import BankCard from '../../molecules/BankCard'
-import EmptyBankCard from '../../molecules/EmptyBankCard'
-import styled from 'styled-components'
+import React from "react"
+import Title from "../../atoms/Title"
+import BankCard from "../../molecules/BankCard"
+import EmptyBankCard from "../../molecules/EmptyBankCard"
+import styled from "styled-components"
+import { BankCardType } from "../../../types/userData"
 
 type PropTypes = {
-  cards: any
-  activeCardHandle: (item: any) => void
+  cards: BankCardType[]
+  activeCardHandle: (item: BankCardType) => void
 }
 
-export default function BankCardSection({ cards, activeCardHandle }: PropTypes) {
+export default function BankCardSection({
+  cards,
+  activeCardHandle,
+}: PropTypes) {
   return (
     <>
       <Title>XEPPT Prepaid Card</Title>
       <CardContainer>
-        {cards.map((card: any) => (
-          <BankCard key={card.id} card={card} handleCardClick={activeCardHandle} />
+        {cards.map((card: BankCardType) => (
+          <BankCard
+            key={card.id}
+            card={card}
+            handleCardClick={activeCardHandle}
+          />
         ))}
         <EmptyBankCard />
       </CardContainer>

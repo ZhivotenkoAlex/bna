@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid"
+import { FilterType } from "../types/userData"
 export const UserData = {
   id: uuidv4(),
   name: "Steve Rogers",
@@ -6,8 +7,8 @@ export const UserData = {
   cards: [
     {
       id: uuidv4(),
-      status: "inactive",
-      balance: 21.0,
+      status: "active",
+      balance: 20.0,
       currency: "USD",
       number: "2034399002125581",
       transactions: [
@@ -55,7 +56,7 @@ export const UserData = {
     },
     {
       id: uuidv4(),
-      status: "active",
+      status: "inactive",
       balance: 120.0,
       currency: "USD",
       number: "2044399002125522",
@@ -117,7 +118,7 @@ export const UserData = {
   ],
 }
 
-export const transactionsFilters = [
+export const transactionsFilters: { id: string; title: FilterType }[] = [
   {
     id: uuidv4(),
     title: "All",
@@ -125,5 +126,23 @@ export const transactionsFilters = [
   {
     id: uuidv4(),
     title: "XEPPT Card",
+  },
+]
+
+export const MENU_ITEMS = [
+  {
+    id: uuidv4(),
+    label: "Home",
+    path: "/",
+  },
+  {
+    id: uuidv4(),
+    label: "XEPPT Card",
+    path: "/card",
+  },
+  {
+    id: uuidv4(),
+    label: "Statements",
+    path: "/statements",
   },
 ]

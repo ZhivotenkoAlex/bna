@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path={ROUTES.HOME} element={<Layout />}>
           <Route index element={<MainPage userData={UserData} />} />
+          <Route path={ROUTES.HOME_GH} element={<MainPage userData={UserData} />} />
           <Route path={ROUTES.XEPPT_CARD} element={<div>Card</div>} />
           <Route path={ROUTES.STATEMENTS} element={<div>Statements</div>} />
           <Route path={ROUTES.ADD_MONEY} element={<div>Add-money</div>} />

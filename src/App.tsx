@@ -13,7 +13,7 @@ function App() {
           <Route path={ROUTES.XEPPT_CARD} element={<div>Card</div>} />
           <Route path={ROUTES.STATEMENTS} element={<div>Statements</div>} />
           <Route path={ROUTES.ADD_MONEY} element={<div>Add-money</div>} />
-          <Route path="*" element={<div>Not found</div>} />
+          <Route path="*" element={ROUTES.HOME} />
         </Route>
       </Routes>
     </>

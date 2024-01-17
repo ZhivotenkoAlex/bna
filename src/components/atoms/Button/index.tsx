@@ -38,23 +38,23 @@ export default function Button({
   disabled = false,
 }: PropType) {
   return (
-    <Root variant={variant} $fullWidth={fullWidth} onClick={onClick} disabled={disabled}>
+    <Root $variant={variant} $fullWidth={fullWidth} onClick={onClick} disabled={disabled}>
       <Title>{children}</Title>
     </Root>
   )
 }
 
-const Root = styled.button<{ variant: ButtonType; $fullWidth: boolean }>`
+const Root = styled.button<{ $variant: ButtonType; $fullWidth: boolean }>`
   width: ${prop => (prop.$fullWidth ? '100%' : 'fit-content')};
   max-width: 320px;
   display: flex;
   padding: 10px 24px;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${prop => ButtonColors[prop.variant].border};
+  border: 1px solid ${prop => ButtonColors[prop.$variant].border};
   border-radius: 20px;
-  color: ${prop => ButtonColors[prop.variant].color};
-  background: ${prop => ButtonColors[prop.variant].background};
+  color: ${prop => ButtonColors[prop.$variant].color};
+  background: ${prop => ButtonColors[prop.$variant].background};
   cursor: pointer;
   font-weight: 700;
 `

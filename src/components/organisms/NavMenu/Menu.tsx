@@ -41,10 +41,12 @@ function Menu() {
 const List = styled('ul')`
   display: flex;
   list-style: none;
-  gap: 1.5rem;
-  @media (max-width: 1439px) {
+  gap: 24px;
+  @media screen and (min-width: ${Sizes.TABLET}px) {
     margin-left: 0;
-    gap: 1.2rem;
+  }
+  @media screen and (min-width: ${Sizes.LAPTOP}px) {
+    gap: 48px;
   }
 `
 

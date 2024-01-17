@@ -13,7 +13,6 @@ type PropTypes = {
 export default function UserBlock({ userName }: PropTypes) {
   const isWideScreen = useMediaQuery('min', Sizes.LAPTOP)
   const isExtraIconShown = useMediaQuery('min', Sizes.TABLET)
-  console.log('🚀 ~ UserBlock ~ isExtraIconShown:', isExtraIconShown)
 
   const name = useMemo(
     () =>
@@ -49,9 +48,18 @@ const Root = styled.div`
   @media (min-width: ${Sizes.TABLET}px) {
     gap: 16px;
   }
+  @media (min-width: ${Sizes.LAPTOP}px) {
+    gap: 18px;
+  }
 `
 
 const UserName = styled.span`
   color: ${Colors.PRIMARY_50};
   font-size: 14px;
+  @media (min-width: ${Sizes.TABLET}px) {
+    font-size: 18px;
+  }
+  @media (min-width: ${Sizes.LAPTOP}px) {
+    gap: 18px;
+  }
 `

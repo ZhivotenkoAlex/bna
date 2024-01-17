@@ -1,10 +1,11 @@
-import React, { ReactNode, useMemo, useState } from 'react'
+import { ReactNode, useMemo, useState } from 'react'
 import Title from '../../atoms/Title'
 import FilterButton from '../../molecules/FilterButton'
 import Button from '../../atoms/Button'
 import TransactionItem from '../../molecules/TransactionItem'
 import { transactionsFilters } from '../../../mock/userData'
 import styled from 'styled-components'
+import { Sizes } from '../../../helpers/sizes'
 
 export default function TransactionsSection({ activeCard }: any) {
   const [activeFilter, setActiveFilter] = useState<any>('All')
@@ -67,6 +68,7 @@ export default function TransactionsSection({ activeCard }: any) {
 const Root = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 `
 
 const FilterContainer = styled.div`
@@ -74,6 +76,9 @@ const FilterContainer = styled.div`
   gap: 16px;
   margin-bottom: 16px;
   order: 0;
+  @media screen and (min-width: ${Sizes.TABLET}px) {
+    position: relative;
+  }
 `
 
 const TransactionsContainer = styled.div`
@@ -91,5 +96,11 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 16px;
-  order: -1;
+  min-width: 130px;
+  @media screen and (min-width: ${Sizes.TABLET}px) {
+    position: absolute;
+    right: 0;
+    /* margin-right: 34px; */
+    margin-top: 83px;
+  }
 `

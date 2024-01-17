@@ -105,10 +105,12 @@ export const UserData = {
   ],
   bankAccounts: [
     {
+      id: uuidv4(),
       title: 'Signature RBC visa',
       number: '****3234',
     },
     {
+      id: uuidv4(),
       title: 'TD Bank Debit',
       number: '****0024',
     },

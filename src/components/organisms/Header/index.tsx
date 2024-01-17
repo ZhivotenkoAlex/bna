@@ -9,18 +9,24 @@ import { Sizes } from '../../../helpers/sizes'
 export default function Header() {
   return (
     <Root>
-      <Menu />
-      <StyledLogo />
-      <UserBlock userName={UserData.name} />
+      <Container>
+        <Menu />
+        <StyledLogo />
+        <UserBlock userName={UserData.name} />
+      </Container>
     </Root>
   )
 }
 
 const Root = styled.header`
-  display: flex;
   background: ${Colors.SECONDARY_30};
-  padding: 19px 27px;
+`
+const Container = styled.div`
+  display: flex;
   justify-content: space-between;
+  max-width: 1398px;
+  margin: 0 auto;
+  padding: 19px 27px;
   @media screen and (min-width: ${Sizes.TABLET}px) {
     padding: 26px 31px;
   }

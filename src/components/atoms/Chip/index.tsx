@@ -11,21 +11,21 @@ type PropType = {
 
 export default function Chip({ variant = 'inactive', children }: PropType) {
   return (
-    <Root variant={variant}>
+    <Root $variant={variant}>
       <Title>{children}</Title>
     </Root>
   )
 }
 
-const Root = styled.div<{ variant: ChipType }>`
+const Root = styled.div<{ $variant: ChipType }>`
   display: flex;
   width: min-content;
   padding: 4px 16px;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  color: ${prop => (prop.variant === 'active' ? Colors.SECONDARY_100 : Colors.PRIMARY_20)};
-  background: ${prop => (prop.variant === 'active' ? Colors.PRIMARY_20 : Colors.PRIMARY_80)};
+  color: ${prop => (prop.$variant === 'active' ? Colors.SECONDARY_100 : Colors.PRIMARY_20)};
+  background: ${prop => (prop.$variant === 'active' ? Colors.PRIMARY_20 : Colors.PRIMARY_80)};
 `
 
 const Title = styled.p`

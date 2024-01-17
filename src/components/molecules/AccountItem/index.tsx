@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Colors } from '../../../helpers/colors'
+import { Sizes } from '../../../helpers/sizes'
 
 export default function AccountItem({ account }: any) {
   return (
@@ -18,6 +19,9 @@ const Root = styled.div`
   border-radius: 8px;
   border: 1px solid ${Colors.SECONDARY_80};
   background: ${Colors.PRIMARY_100};
+  @media screen and (min-width: ${Sizes.TABLET}px) {
+    padding: 8px 16px;
+  }
 `
 
 const Title = styled.p`

@@ -16,6 +16,7 @@ function App() {
           <Route path={ROUTES.STATEMENTS} element={<div>Statements</div>} />
           <Route path={ROUTES.ADD_MONEY} element={<div>Add-money</div>} />
           <Route path={ROUTES.LINK_BANK} element={<div>Bank Account and Cards</div>} />
+          <Route path={ROUTES.ORDER_CARD} element={<div>Order a new card</div>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

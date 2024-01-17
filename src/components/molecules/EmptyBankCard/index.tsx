@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import { Colors } from '../../../helpers/colors'
 import IconCircleContainer from '../../atoms/IconCircleContainer'
 import AddLineIcon from 'remixicon-react/AddLineIcon'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../../helpers/routes'
 
 export default function EmptyBankCard() {
   return (
-    <Root>
+    <Root to={ROUTES.ORDER_CARD}>
       <Container>
         <IconCircleContainer color="dark">
           <AddLineIcon color={Colors.PRIMARY_50} />
@@ -16,7 +18,7 @@ export default function EmptyBankCard() {
   )
 }
 
-const Root = styled.div`
+const Root = styled(Link)`
   min-width: 256px;
   height: 160px;
   border-radius: 15px;

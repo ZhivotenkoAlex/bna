@@ -21,11 +21,11 @@ export default function AccountAndCardsSection({ accounts }: PropTypes) {
           <AccountItem key={item.id} account={item} />
         ))}
       </AccountContainer>
-      <CardLinkContainer>
+      <CardLinkContainer to={ROUTES.LINK_BANK}>
         <IconCircleContainer color="dark">
           <AddLineIcon color={Colors.PRIMARY_50} />
         </IconCircleContainer>
-        <CardLink to={ROUTES.LINK_BANK}>Link a card or bank</CardLink>
+        <CardLink>Link a card or bank</CardLink>
       </CardLinkContainer>
     </>
   )
@@ -41,7 +41,7 @@ const AccountContainer = styled.div`
   }
 `
 
-const CardLinkContainer = styled.div`
+const CardLinkContainer = styled(Link)`
   display: flex;
   justify-content: left;
   align-items: center;
@@ -52,7 +52,7 @@ const CardLinkContainer = styled.div`
   }
 `
 
-const CardLink = styled(Link)`
+const CardLink = styled.p`
   color: ${Colors.SECONDARY_20};
   font-family: Poppins;
   font-size: 20px;

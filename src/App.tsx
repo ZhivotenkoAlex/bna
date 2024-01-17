@@ -1,16 +1,18 @@
-import { Routes, Route } from "react-router-dom"
-import MainPage from "./components/Pages/MainPage"
-import { UserData } from "./mock/userData"
-import Layout from "./components/Pages/Layout"
+import { Routes, Route } from 'react-router-dom'
+import MainPage from './components/Pages/MainPage'
+import { UserData } from './mock/userData'
+import Layout from './components/Pages/Layout'
+import { ROUTES } from './helpers/routes'
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path={ROUTES.HOME} element={<Layout />}>
           <Route index element={<MainPage userData={UserData} />} />
-          <Route path="/card" element={<div>Card</div>} />
-          <Route path="/statements" element={<div>Statements</div>} />
+          <Route path={ROUTES.XEPPT_CARD} element={<div>Card</div>} />
+          <Route path={ROUTES.STATEMENTS} element={<div>Statements</div>} />
+          <Route path={ROUTES.ADD_MONEY} element={<div>Add-money</div>} />
           <Route path="*" element={<div>Not found</div>} />
         </Route>
       </Routes>

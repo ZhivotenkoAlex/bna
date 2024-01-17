@@ -1,11 +1,13 @@
 // import Title from '../../atoms/Title'
-import { Colors } from "../../../helpers/colors"
-import AddLineIcon from "remixicon-react/AddLineIcon"
-import IconCircleContainer from "../../atoms/IconCircleContainer"
-import styled from "styled-components"
-import AccountItem from "../../molecules/AccountItem"
-import { Sizes } from "../../../helpers/sizes"
-import { BankAccount } from "../../../types/userData"
+import { Colors } from '../../../helpers/colors'
+import AddLineIcon from 'remixicon-react/AddLineIcon'
+import IconCircleContainer from '../../atoms/IconCircleContainer'
+import styled from 'styled-components'
+import AccountItem from '../../molecules/AccountItem'
+import { Sizes } from '../../../helpers/sizes'
+import { BankAccount } from '../../../types/userData'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../../helpers/routes'
 type PropTypes = {
   accounts: BankAccount[]
 }
@@ -18,12 +20,12 @@ export default function AccountAndCardsSection({ accounts }: PropTypes) {
           <AccountItem key={item.id} account={item} />
         ))}
       </AccountContainer>
-      <CardLink>
+      <CardLinkContainer>
         <IconCircleContainer color="dark">
           <AddLineIcon color={Colors.PRIMARY_50} />
         </IconCircleContainer>
-        <CardLinkTitle>Link a card or bank</CardLinkTitle>
-      </CardLink>
+        <CardLinkTitle to={ROUTES.LINK_BANK}>Link a card or bank</CardLinkTitle>
+      </CardLinkContainer>
     </>
   )
 }
@@ -38,7 +40,7 @@ const AccountContainer = styled.div`
   }
 `
 
-const CardLink = styled.div`
+const CardLinkContainer = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
@@ -49,7 +51,7 @@ const CardLink = styled.div`
   }
 `
 
-const CardLinkTitle = styled.p`
+const CardLinkTitle = styled(Link)`
   color: ${Colors.SECONDARY_20};
   font-family: Poppins;
   font-size: 20px;
@@ -57,6 +59,9 @@ const CardLinkTitle = styled.p`
   font-weight: 700;
   line-height: normal;
   text-decoration-line: underline;
+  &:hover {
+    color: ${Colors.PRIMARY_50};
+  }
 `
 
 const Title = styled.h4`
